@@ -1,39 +1,63 @@
 
 
+<!-- add student -->
+<div class="container">
+    <!-- <div style="color: purple">
+        <h1>{{currentUser.firstname}} {{currentUser.lastname}}</h1>
+    </div> -->
+    <div class="row">
 
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#!">School Payment</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#!/dashboard">Home</a></li>
+                    <li><a href="/#!/childs/edit">Edit Child</a></li>
+                    <li><a href="/#!/childs/funds">Funds</a></li>
+                </ul>
+            </div>
+        </nav>
 
 <div id="mealAccounts" class="row list-balances clearfix" role="main">
     <div class="header-row clearfix col-md-10 col-md-offset-1">
-        <h1>Add Child</h1>
+        <h1>Add Student</h1>
     </div>
         <div class="header-row clearfix col-md-10 col-md-offset-1">
 
             <form ng-submit="vm.saveChild(currentUser._id)">
-                <div class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                <div class="well well-sm" class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
                     <label for="">First Name</label>
                     <input class="form-control"  type="text" ng-model="vm.firstname"required=""><br>
                 </div>
-                <div class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                <div class="well well-sm" class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
                     <label for="">Last Name</label>
                     <input class="form-control"  type="text" ng-model="vm.lastname"required=""><br>
                 </div>
-                <div class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                <div class="well well-sm" class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
                     <label for="school">School</label>
                     <select class="form-control" name="School" ng-model="vm.school" required="">
                         <option>Level Creek Elementary</option>
                         <option>North Gwinnett Middle School</option>
                         <option>North Gwinnett High School</option>
+                        <option>Hans Christian Anderson Elementary</option>
+                        <option>JFK Middle School</option>
+                        <option>Rockledge High School</option>
+                        <option>Golfview Elementary</option>
+                        <option>Ronald McNair Middle School</option>
+                        <option>Cocoa High School</option>
                     </select>
                     <!-- <input class="form-control"  type="text" ng-model="vm.school"><br> -->
                 </div>
-                <div class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                <div class="well well-sm" class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
                     <label for="lastname">Grade</label>
                     <input class="form-control"  type="text" ng-model="vm.grade"required=""><br>
                 </div>
-                <div class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                <!-- <div class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
                     <label for="">Funds</label>
                     <input class="form-control"  type="text" ng-model="vm.funds"><br>
-                </div>
+                </div> -->
                 <div class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
                     <input type="text" ng-model="vm.parentid" value="currentUser._id" hidden>
                     <input class="btn btn-default"  type="submit" value="Add Child"><br>
@@ -43,15 +67,3 @@
 
 
 </div>
-
-<h1>Add Child</h1>
-<form ng-submit="vm.saveChild(currentUser._id)">
-  <label for="">First Name:</label><input type="text" ng-model="vm.firstname"><br>
-  <label for="">Last Name:</label><input type="text" ng-model="vm.lastname"><br>
-  <label for="">School:</label><input type="text" ng-model="vm.school"><br>
-  <label for="">Grade:</label><input type="text" ng-model="vm.grade"><br>
-  <label for="">Funds:</label><input type="text" ng-model="vm.funds"><br>
-
-  <input type="hidden" ng-model="vm.parentid" value="currentUser._id" hidden>
-  <input type="submit" name="" value="Add Child"><br>
-</form>

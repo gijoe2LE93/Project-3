@@ -36,4 +36,35 @@
             </li>
           </ul>
 
+      </div>
+
+      <!-- Child Edits -->
+      <p>Cafeteria purchase history is retained for 7 to 45 days, and varies by district.
+
+          For questions or discrepancies regarding these purchases, please contact your school cafeteria manager.</p>
+          <p>Select a student below to view cafeteria purchases.</p>
+
+          <select ng-model = "vm.user" class="custom-select" name="student">
+              <option ng-model="child.firstname" value="vm.firstname">Child Name</option>
+          </select>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Date</th>
+                      <th>Description</th>
+                      <th>Amount</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr ng-repeat = "vm.meal">
+                      <th scope = "row">1</th>
+                      <td>vm.date</td>
+                      <td>vm.description</td>
+                      <td>vm.cost</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
 </div>

@@ -2,83 +2,67 @@
 
     <div class="container">
         <div class="row">
-
-        <span title="user.lastname"><a href="#">  {{user.firstname}} {{user.lastname}}</a></span>
-        <h2>User Name</h2>
-        <nav class="navbar navbar-toggleable">
-            <button type="button" name="button" <a href='#'</a>Home</button>
-            <button type="button" name="button">Add Child</button>
-            <button type="button" name="button">Edit Child</button>
-        </nav>
-
-
-        </div>
-        <p>Cafeteria purchase history is retained for 7 to 45 days, and varies by district.
-
-            For questions or discrepancies regarding these purchases, please contact your school cafeteria manager.</p>
-            <p>Select a student below to view cafeteria purchases.</p>
-
-            <select ng-model = "vm.user" class="custom-select" name="student">
-                <option ng-model="child.firstname" value="vm.firstname">Child Name</option>
-            </select>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat = "vm.meal">
-                        <th scope = "row">1</th>
-                        <td>vm.date</td>
-                        <td>vm.description</td>
-                        <td>vm.cost</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-    <div class="">
-        <h1>Edit Child</h1>
-        <ul>
-            <li ng-repeat="child in vm.childs">
-                    <h3 ng-click="vm.editChild(child._id)"></h3>
-                    <ul ng-if="vm.editableChild !== child._id" >
+            <h1>User Name</h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#!">School Payment</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/#!/dashboard">Home</a></li>
+                        <li><a href="/#!/childs/add">Add Child</a></li>
+                        <li><a href="/#!/childs/funds">Funds</a></li>
                     </ul>
-                    <br>
-
-                    <form class="form-group" ng-submit="vm.updateChild(child)"
-                    ng-if="vm.editableChild == child._id">
-                        <label for="">First Name:</label><input type="text" ng-model="child.firstname"><br><br>
-                        <label for="">Last Name:</label><input type="text" ng-model="child.lastname"><br>
-                        <label for="">School:</label><input type="text" ng-model="child.school"><br>
-                        <label for="">Grade:</label><input type="text" ng-model="child.grade"><br>
-                        <input type="submit" value="Update">
-                        <input ng-click="vm.deleteChild(child._id)" type="submit" value="Delete">
-                    </form>
-                </li>
-            </ul>
-        </div>
-        </div>
-        <h1>Add Child</h1>
-        <div class="container">
-            <form name="form" class="form-horizontal" ng-submit="vm.addChild()">
-                <div class="form-group">
-                    <label for="firstname" class="col-sm-2 col-form-label">First Name: </label>
-                    <input class="form-control"  type="text" ng-model="vm.firstname"><br>
-                    <label for="">Last Name: </label>
-                    <input class="form-control"type="text" ng-model="vm.lastname"><br>
-                    <label for="">School: </label>
-                    <input class="form-control"type="text" ng-model="vm.school"><br>
-                    <label for="">Grade: </label>
-                    <input class="form-control"type="text" ng-model="vm.grade"><br>
-                <input class="form-control"type="submit" name="" value="Add Child"><br>
                 </div>
+            </nav>
 
-            </form>
+            <div class="header-row clearfix col-md-10 col-md-offset-1">
+                <h3>Edit Student</h3>
+            </div>
+
+            <div  class="header-row clearfix col-md-10 col-md-offset-1">
+                <ul>
+                    <li ng-repeat="child in vm.childs">
+                        <h3 ng-click="vm.editChild(child._id)">{{child.name}}</h3>
+                        <ul ng-if="vm.editableChild == child._id" >
+                        </ul>
+                        <br>
+                    </li>
+
+                    <form ng-submit="vm.updateChild(child)"
+                        ng-if="vm.editableChild == child._id">
+
+                        <div class="well well-sm"class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                            <label for="">First Name</label>
+                            <input class="form-control"  type="text" ng-model="vm.firstname"required=""><br>
+                        </div>
+
+                        <div class="well well-sm" class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                            <label for="">Last Name</label>
+                            <input class="form-control"  type="text" ng-model="vm.lastname"required=""><br>
+                        </div>
+
+                        <div class="well well-sm" class="header-col col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                            <label for="school">School</label>
+                            <select class="form-control" name="School" ng-model="vm.school" required="">
+                                <option>Level Creek Elementary</option>
+                                <option>North Gwinnett Middle School</option>
+                                <option>North Gwinnett High School</option>
+                                <option>Hans Christian Anderson Elementary</option>
+                                <option>JFK Middle School</option>
+                                <option>Rockledge High School</option>
+                                <option>Golfview Elementary</option>
+                                <option>Ronald McNair Middle School</option>
+                                <option>Cocoa High School</option>
+                            </select><br>
+                            <!-- call edit child function on click -->
+                            <input type="submit" value="Update" ng-click="vm.updateChild(child._id)">
+                            <!-- call deleteChild function on click -->
+                            <input ng-click="vm.deleteChild(child._id)" type="submit" value="Delete">
+                        </div>
+                    </form>
+                </ul>
+            </div>
         </div>
-
+    </div>
 </div>
